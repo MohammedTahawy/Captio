@@ -1,0 +1,138 @@
+/* Google Meet Auto Caption Saver - Floating HUD Styles */
+
+#meet-caption-saver-hud {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  z-index: 999999;
+  font-family: 'Google Sans', Roboto, -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+  font-size: 13px;
+  user-select: none;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  background: rgba(32, 33, 36, 0.88);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 28px;
+  color: #e8eaed;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  padding: 6px 14px;
+  gap: 10px;
+}
+
+#meet-caption-saver-hud.minimized {
+  padding: 6px 10px;
+  border-radius: 20px;
+  background: rgba(32, 33, 36, 0.75);
+}
+
+#meet-caption-saver-hud .hud-status {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+#meet-caption-saver-hud .status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #ea4335;
+  box-shadow: 0 0 8px #ea4335;
+  animation: pulse-dot 1.8s infinite;
+}
+
+@keyframes pulse-dot {
+  0% { transform: scale(0.95); opacity: 0.7; }
+  50% { transform: scale(1.2); opacity: 1; box-shadow: 0 0 12px #ea4335; }
+  100% { transform: scale(0.95); opacity: 0.7; }
+}
+
+#meet-caption-saver-hud .hud-count {
+  color: #8ab4f8;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+#meet-caption-saver-hud .hud-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+#meet-caption-saver-hud.minimized .hud-actions {
+  display: none;
+}
+
+#meet-caption-saver-hud button {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #f1f3f4;
+  border-radius: 16px;
+  padding: 4px 10px;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  transition: all 0.2s ease;
+  outline: none;
+}
+
+#meet-caption-saver-hud button:hover {
+  background: rgba(255, 255, 255, 0.18);
+  border-color: rgba(255, 255, 255, 0.25);
+  transform: translateY(-1px);
+}
+
+#meet-caption-saver-hud button:active {
+  transform: translateY(0);
+}
+
+#meet-caption-saver-hud button.btn-download {
+  background: #1a73e8;
+  border-color: #1a73e8;
+  color: #ffffff;
+}
+
+#meet-caption-saver-hud button.btn-download:hover {
+  background: #1967d2;
+  box-shadow: 0 2px 8px rgba(26, 115, 232, 0.4);
+}
+
+#meet-caption-saver-hud .btn-icon-only {
+  padding: 4px 6px;
+  border-radius: 50%;
+  font-size: 11px;
+}
+
+/* Toast notifications inside Meet */
+.meet-caption-toast {
+  position: fixed;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  background: rgba(32, 33, 36, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  padding: 10px 20px;
+  border-radius: 24px;
+  font-size: 13px;
+  font-weight: 500;
+  z-index: 1000000;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+  font-family: 'Google Sans', Roboto, sans-serif;
+  direction: auto;
+}
+
+.meet-caption-toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
